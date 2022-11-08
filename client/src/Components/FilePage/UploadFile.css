@@ -6,47 +6,47 @@ body{
 
 
 }
+/* .file-uploader-box{
+    box-sizing: border-box;
+    background-color: white;
+} */
 .heading{
     box-sizing: border-box;
-    color: rgb(223, 179, 126);
-    background-color: bisque;
+    color: rgb(46, 42, 37);
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.form{
-    padding: 1rem ;
-    background: #f7f7f7;
-    border-color: black;
-    border-radius: 10px;
-}
+
 .form{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 500px;
-    height: 10px;
+    width: 60rem;
+    height: 80px;
     background: white;
+    border-radius: 1rem;
     position: relative;
-    color: white;
-    font-size: 33px;
+    color: rgb(126, 111, 111);
     cursor: pointer;
-    margin: 100px;
+    margin: 50px;
+    font-size: 25px;
+  
 }
 .btn-primary{
     display: flex;
-    background-color: rgb(142, 207, 116);
+    background-color: rgb(52, 150, 104);
     border-radius: 10px;
     border: none;
     color: white;
     height: 40px;
-    width: 100px;
+    width: 200px;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    
 }
 h1{
     margin-top: 50px;
     box-sizing: border-box;
-    border: bisque;
+    border: white;
 }

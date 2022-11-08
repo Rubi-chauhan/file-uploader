@@ -20,7 +20,7 @@ export default function UploadFile() {
 
     }
   return (
-    <div>
+    <div className='file-uploader-box'>
       <h1 class='heading'>File Uploader</h1>
         <form class ='form' onSubmit={handleSubmit}>
             <input type="file" name='file' onChange={event => setFile(event.target.files[0])} required/>
