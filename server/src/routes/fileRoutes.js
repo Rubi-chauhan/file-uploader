@@ -1,51 +1,16 @@
-const fs = require('fs')
 const express = require('express')
-const app = express()
 const router = express.Router()
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+const {upload} = require('../services/multerSetup')
 
-const multer = require('multer')
-
-
-
-
-const fileStorage =
-    multer.diskStorage({
-        destination: (req, file, cb) => {
-            cb(null, 'uploads')
-        },
-        filename: (req, file, cb) => {
-
-            cb(null, file.originalname)
-            // cb(null, file.originalname)
-        }
-    })
-
-//* if file validations needed
-// const fileFilter = (req, file, cb) => {
-//     if (['image/png', 'image/jpg', 'image/jpeg'].includes(file.mimetype)) {
-//       cb (null, true)
-//     } else {
-//       cb (null, false)
-//     }
-//   }
+const { uploadFile, getAllFiles, downloadFile } = require('../controllers/fileController')
+const {isAuthenticated} = require('../middleware/auth')
 
 
 
-
-//route to download a file
-
-
-const { uploadFile, downloadFile } = require('../controllers/fileController')
-
-const upload = multer({ storage: fileStorage })
-
-
-
-router.post('/upload', upload.single('file'), uploadFile)
+router.post('/upload',upload, uploadFile)
 router.get('/download/:file(*)', downloadFile)
+router.get('/getFiles', getAllFiles)
 
 module.exports = router
 

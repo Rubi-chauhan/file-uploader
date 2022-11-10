@@ -1,16 +1,12 @@
-import axios from  'axios'
+// import axios from  'axios'
+// const url = 'http://localhost:4000/';
 
-class FileUpload{
-    create(formData){
-        const url = 'http://localhost:4000/upload';
-        const config = {
-            headers:{
 
-                'content-type' : 'multipart/form-data'
-            }
-        }
-        return axios.post(url, config, formData)
-    }
-}
-
-export default new FileUpload()
+// class FileUpload {
+//     async create (formData) {
+   
+//          const response = await axios.post(url+'upload', formData)
+//          return response
+//      }
+//  }
+//  export default new FileUpload()
