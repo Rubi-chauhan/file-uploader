@@ -8,8 +8,8 @@ const {isAuthenticated} = require('../middleware/auth')
 
 
 
-router.post('/upload',upload, uploadFile)
-router.get('/download/:file(*)', downloadFile)
+router.post('/upload',upload.single('file'), uploadFile)
+router.get('/download', downloadFile)
 router.get('/getFiles', getAllFiles)
 
 module.exports = router

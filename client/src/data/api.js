@@ -1,4 +1,5 @@
 import axios from 'axios';
+import fileDownload from 'js-file-download'
 
 const apiURL = 'http://localhost:4000/'
 
@@ -27,7 +28,11 @@ export const getFiles =  async()=> {
 
 export const download = async()=>{
     try {
-        await axios.get(apiURL+'download')
+        const {data}= await axios.get(apiURL+'download' ,
+        {
+            responseType : "blob",
+        })
+        fileDownload(data)
         
     } catch (error) {
         throw error;

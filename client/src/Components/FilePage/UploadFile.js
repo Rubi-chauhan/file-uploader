@@ -36,6 +36,7 @@ export default function UploadFile() {
       e.target.reset()
 
     }
+    
 
 
   return (

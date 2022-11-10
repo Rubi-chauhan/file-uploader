@@ -2,7 +2,15 @@ const mongoose = require('mongoose')
 
 const fileSchema = new mongoose.Schema({
 
-    file: {
+    fileName: {
+        type: String,
+        trim: true
+    },    
+    filePath: {
+        type: String,
+        trim: true
+    },    
+    fileType: {
         type: String,
         trim: true
     }

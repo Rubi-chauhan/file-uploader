@@ -5,8 +5,8 @@ import { download } from '../../data/api'
 // import { saveAs } from 'file-saver'
 
 export const DownloadFile = (e)=>{
+    
     const [url , setUrl] = useState('')
-    // e.prevent
 
     return (
         <div>
