@@ -10,10 +10,14 @@ const fileSchema = new mongoose.Schema({
         type: String,
         trim: true
     },    
-    fileType: {
+    fileURL: {
         type: String,
         trim: true
-    }
+    },
+    cloudinary_id: {
+        type: String,
+        trim: true
+    },
 
 }, { timestamps: true })
 

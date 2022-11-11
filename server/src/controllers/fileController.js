@@ -1,17 +1,29 @@
-
+const cloudinary = require('../../utils/cloudinary')
 const fileModel = require('../models/fileModel')
+const baseURL = 'http://localhost:4000/'
+const path = require('path')
+const fs= require('fs')
+
 
 
 const uploadFile = async (req, res) => {
   try {
-    const file= {
-      fileName: req.file.originalname,
-      filePath: req.file.path,
-      fileType: req.file.mimetype
+    // const file= {
+    //   fileName :req.file.originalname,
+    //   filePath:req.file.path,
+    //   fileType: req.file.mimetype
+    // }
+    const result =  await cloudinary.uploader.upload(req.file.path, {upload_presets:'fileUploader'})
+       let newFile= {
+      fileName :req.file.originalname,
+      filePath:req.file.path,
+      fileURL:result.secure_url,
+      cloudinary_id: result.public_id
     }
-
-    const filedata = await fileModel.create(file)
-    res.status(201).send({ sttaus: true, message: 'File Uploaded Successfully', data: filedata })
+    
+      const fileData = await fileModel.create(newFile)
+      
+    res.status(201).send({ sttaus: true, message: 'File Uploaded Successfully', data: fileData })
 
   } catch (error) {
     res.status(400).send({ status: false, message: error.message })
@@ -32,15 +44,15 @@ const getAllFiles = async(req,res)=>{
 
 const downloadFile = async (req, res) => {
   try {
-    // const id = req.params.id
-    // let file = req.params.file;
-    const file = await fileModel.find();
+    
+    let url= req.query.fileURL
+    const response = await fileModel.findOne({fileURL:url});
+    console.log(response)
 
-    let fileLocation = path.join('./uploads',file);
-    console.log(fileLocation);
-    res.download(fileLocation, file);
 
-    // res.download(file);
+
+    res.download(response);
+   
 
   } catch (error) {
     res.status(400).send(error.message);
@@ -60,3 +72,7 @@ module.exports = { uploadFile, getAllFiles, downloadFile }
 //   res.setHeader('Content-Disposition', 'attachment: filename="' + filename + '"')
 //   file.pipe(res)
 // }
+
+    // let fileLocation = path.join(__dirname, '../../uploads')
+    // console.log(fileLocation)
+    // res.download(fileLocation+filename);

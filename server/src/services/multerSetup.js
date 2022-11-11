@@ -1,4 +1,6 @@
 const multer = require('multer')
+const cloudinary = require('cloudinary').v2
+const {cloudnaryStorage} = require('multer-storage-cloudinary')
 
 const storage = multer.diskStorage({
     destination: (req,file, cb)=>{
@@ -9,6 +11,10 @@ const storage = multer.diskStorage({
     }
 
 })
+// const storage = new cloudnaryStorage({
+//     cloudinary:cloudinary,
+
+// })
 
 const upload = multer({storage:storage})
 // .single('file')

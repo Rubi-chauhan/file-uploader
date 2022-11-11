@@ -7,9 +7,14 @@ require('dotenv').config();
 const cors = require('cors')
 const session = require('express-session');
 const passport = require("passport");
+const cloudinary = require('cloudinary').v2
+
+
+
 
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 
 app.set("trust proxy", 1);
@@ -26,11 +31,17 @@ app.use(
     }
   }))
 
+  cloudinary.config({ 
+    cloud_name: process.env.CLOUD_NAME, 
+    api_key: process.env.API_KEY, 
+    api_secret: process.env.API_SECRET 
+  });
+
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/upload' , express.static(path.join(__dirname, 'uploads')))
+app.use('/upload' , express.static(path.join(__dirname, './uploads')))
 
 
 
