@@ -26,6 +26,7 @@ export default function UploadFile() {
     const fileChange = async(e)=>{
       e.preventDefault()
       setFile(e.target.files[0])
+      e.target.reset()
     
     }
 

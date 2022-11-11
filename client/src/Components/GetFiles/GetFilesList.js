@@ -35,10 +35,10 @@ export default function GetFilesList() {
                 {newFile.map((file, index)=>
                 <div className='col-6'>
                   <div className='card mb-3 border-0 p-0'>
-                    <img src={`http://localhost:4000/${file.filePath}`} height='100' className='card-img-top img-responsive mt-2' alt='img' /><br></br>
+                    <image src={`http://localhost:4000//${file.fileURL}`} height='100' className='card-img-top img-responsive mt-2' alt='img' /><br></br>
                   
                   </div>
-                  <a href={`http://localhost:4000/${file.filePath}`} className="btn btn-warning mt-4 mb-4" download={`${file.filePath}`} onClick={download} >Download</a>
+                  <a href={`http://localhost:4000//${file.fileURL}`} className="btn btn-warning mt-4 mb-4" download={`${file.fileURL}`} onClick={download} >Download</a>
                     {/* <button type="button" className="btn btn-warning mt-4" onClick={download} >Download</button> */}
                 </div>
                 )}
