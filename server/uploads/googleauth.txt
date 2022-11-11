@@ -1,0 +1,4 @@
+ client id: 166249168811-54an3nqdakeoib7uatqmdo1ibgiugslk.apps.googleusercontent.com
+
+
+client secret :    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

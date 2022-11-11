@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function myFunction ( ) {
+                window.alert("Hey I was called")
+                return 
+            } 
+
+            // onclick
+            // onmouseover
+            // mouse out 
+            // key down
+            //  document load
+        
+    function boldMe(){
+        // activities- P ko bold karega 
+        document.getElementById("content").innerHTML = "<strong>" + document.getElementById("content").innerHTML + "</strong>"
+        return 
+    }
+
+    function italicMe(){
+        document.getElementById("content").innerHTML= "<em>" + document.getElementById("content").innerHTML + "</em>" 
+        return
+    }
+
+    function underlineMethod()
+                {
+                    document.getElementById("content").innerHTML= "<u>" + document.getElementById("content").innerHTML + "</u>"
+                    return
+                }
+
+        function fontMethod()
+            {
+             document.getElementById("content").innerHTML= "<font color='blue'>" + document.getElementById("content").innerHTML + "</font> "
+                return
+            }
+        </script>
+    </head>
+    <body>
+        <!-- <div id="functionUp"  onmouseover=myFunction() > This is a div </div> -->
+        <input type="button" value="click me plz" onclick=myFunction()>
+
+        <p id="content">
+           Hey i am now trying to build the basic blocks of google docs. <br>
+             This is super exciting 
+        </p>
+        <input type="button" value="B" onclick=boldMe() >
+        <input type="button" value="I" onclick=italicMe() >
+        <input type ="button" value = "U" onClick = underlineMethod()>
+        <input type ="button" value = "F" onClick = fontMethod()>
+        
+    </body>
+</html>
+
+

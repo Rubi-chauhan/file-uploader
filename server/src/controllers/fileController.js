@@ -44,14 +44,19 @@ const getAllFiles = async(req,res)=>{
 
 const downloadFile = async (req, res) => {
   try {
+    let file = req.params.file
+    let filelocation = path.join('./uploads',file);
+    // let filelocation = await fileModel.findOne({fileURL:file})
+    console.log(filelocation);
+    res.download(filelocation, file); 
     
-    let url= req.query.fileURL
-    const response = await fileModel.findOne({fileURL:url});
-    console.log(response)
+    // let url= req.query.fileURL
+    // const response = await fileModel.findOne({fileURL:url});
+    // console.log(response)
 
+    // res.download(response);
 
-
-    res.download(response);
+    // res.attachment(path.join(__dirname, "uploads/jsDoc.pdf"));
    
 
   } catch (error) {

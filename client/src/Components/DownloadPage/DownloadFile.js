@@ -16,6 +16,27 @@ export const DownloadFile = (e)=>{
     )
 }
 
+// export const downloadHandler = (e) =>{
+//     const fileName = e.target.parentElement.id;
+//   axios({
+//       method: 'get',
+//       url: 'http://localhost:4000/download/'+fileName,
+//       responseType: 'blob',
+//       headers: {},
+//       })
+//       .then((res) => {
+//           const url = window.URL.createObjectURL(new Blob([res.data]));
+//           const link = document.createElement('a');
+//           link.href = url;
+//           link.setAttribute('download', fileName);
+//           document.body.appendChild(link);
+//           link.click();
+//       })
+//       .catch((error) => {
+//           alert(error);
+//       })
+// }
+
 
 
 

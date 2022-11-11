@@ -1,5 +1,6 @@
 import {download, getFiles} from '../../data/api'
 import {useState, useEffect} from 'react'
+// import {downloadHandler} from '../DownloadPage/DownloadFile'
 
 
 import React from 'react'
@@ -7,6 +8,7 @@ import React from 'react'
 
 export default function GetFilesList() {
     const [newFile, setNewFile] = useState([])
+    console.log(newFile)
 
     const getFileList = async()=>{
       try {
@@ -35,11 +37,11 @@ export default function GetFilesList() {
                 {newFile.map((file, index)=>
                 <div className='col-6'>
                   <div className='card mb-3 border-0 p-0'>
-                    <image src={`http://localhost:4000//${file.fileURL}`} height='100' className='card-img-top img-responsive mt-2' alt='img' /><br></br>
+                    <a href={`http://localhost:4000/${file.fileName}`} height='100' className='card-img-top img-responsive mt-2' /><br></br>
                   
                   </div>
-                  <a href={`http://localhost:4000//${file.fileURL}`} className="btn btn-warning mt-4 mb-4" download={`${file.fileURL}`} onClick={download} >Download</a>
-                    {/* <button type="button" className="btn btn-warning mt-4" onClick={download} >Download</button> */}
+                  <a href={`http://localhost:4000/${file.fileName}`} className="btn btn-warning mt-4 mb-4" download={`${file.fileURL}`} onClick={download} >Download</a>
+                    
                 </div>
                 )}
 
