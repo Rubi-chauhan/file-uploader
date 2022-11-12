@@ -4,9 +4,9 @@ import  "./LoginPage.css"
 
 export default function LoginPage() {
 
-//   const googleLogin = () => {
-//     window.open("https://o-auth-video-backend.herokuapp.com/auth/google", "_self");
-// }
+  const googleLogin = () => {
+    window.open("http://localhost:3000/upload", "_self");
+}
 
   return (
     <div className='loginPage'>
@@ -15,7 +15,7 @@ export default function LoginPage() {
       </div>
         <div className='googleContainer'>
                 <img src={googleImage} alt="Google Icon" /> 
-                <p>Login With Google</p>
+                <p onClick={googleLogin}>Login With Google</p>
         </div>
     </div>
   )

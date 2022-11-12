@@ -2,12 +2,15 @@ const express = require("express");
 const app = express()
 const path = require('path')
 const mongoose = require("mongoose");
-const router = require('./src/routes/fileRoutes')
+
 require('dotenv').config();
 const cors = require('cors')
 const session = require('express-session');
 const passport = require("passport");
 const cloudinary = require('cloudinary').v2
+const authRoute = require('./src/routes/userRoutes');
+const fileRouts = require('./src/routes/fileRoutes')
+require("./src/passport");
 
 
 
@@ -37,13 +40,15 @@ app.use(
     api_secret: process.env.API_SECRET 
   });
 
-
+// Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'uploads')))
 
 
+app.use( authRoute )
+app.use( fileRouts)
 
 const PORT = process.env.PORT || 4000
 
@@ -51,5 +56,3 @@ mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true
 })
     .then(() => app.listen(PORT, () => console.log(`Live on ${PORT}`)))
-
-app.use('/', router)

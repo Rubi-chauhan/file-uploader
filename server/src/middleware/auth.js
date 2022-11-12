@@ -2,7 +2,26 @@ const isAuthenticated = async(req,res,next)=>{
     if(req.user){
         next()
     }else{
-        res.status(401).send('Please login first !')
+      res.redirect('/login')
     }
 }
 module.exports = {isAuthenticated}
+
+// module.exports = {
+//     // if user is authenticated the redirected to next page else redirect to login page
+//     ensureAuth: function (req, res, next) {
+//       if (req.isAuthenticated()) {
+//         return next()
+//       } else {
+//         res.redirect('/login')
+//       }
+//     },
+//     // if user is authenticated and going to login page then redirected to home page if not authenticated redirected to login page  .
+//     ensureGuest: function (req, res, next) {
+//       if (!req.isAuthenticated()) {
+//         return next();
+//       } else {
+//         res.redirect('/login');
+//       }
+//     },
+//   }
