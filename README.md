@@ -2,8 +2,11 @@
 
 
 1)create a web page and implement sign-in using google authentication. 
+
 2) After login, users should be able to upload any kind of file on AWS s3 bucket or in a local directory of a web server. 
+
 3) list all the files uploaded using the same uploader
+
 4) Clicking on a file should download that file.
  
 
